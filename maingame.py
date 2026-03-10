@@ -1,4 +1,9 @@
 import random
+import time
+import gameover
+import nombreTentatives
+import checkMise
+
 
 def maingame():
     global chances
@@ -9,15 +14,12 @@ def maingame():
     number = random.randint(1, maxlimit)
     while True:
         try:
-            print(f'Vous avez {chances} chances pour trouver le nombre')
+            print(f'Niveau 1, vous avez {chances} chances pour trouver le nombre')
             guess = int(input('Votre proposition : '))
         except ValueError:
             print("Ce n'est pas un nombre valide, essayez à nouveau !")
             continue
         match guess:
-            case 'exit':
-                print('Merci d\'avoir joué, à bientôt !')
-                break
             case guess if guess < 0:
                 print('La proposition est trop petite !')
                 continue
@@ -26,10 +28,16 @@ def maingame():
                 continue
             case guess if (guess != number and guess < maxlimit):
                 chances -= 1
+                nombreTentatives.add_tentative()
                 print('Mauvaise réponse !')
             case guess if guess == number:
                 print('Bravo, vous avez trouvé le nombre !')
+                nombreTentatives.get_tentatives()
+                checkMise.update_mise()
                 break
         if chances <= 0:
                 print('Dommage, vous avez épuisé toutes vos chances !')
-                break
+                time.sleep(2)
+                gameover.gameover_screen()
+
+maingame()

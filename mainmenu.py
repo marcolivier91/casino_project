@@ -13,7 +13,7 @@ def showmainmenu():
     if input(colored('Êtes-vous prêt à jouer ? (oui/non) : ', 'yellow')).lower() != 'oui':
         print('Dommage, peut-être une prochaine fois !')
     else:
-        regles.afficherRegles()            
+        regles.afficher_regles()            
         checkMise.get_mise()
         maingame.maingame()
         
