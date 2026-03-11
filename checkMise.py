@@ -16,12 +16,16 @@ def insert_mise():
         print("Ce n'est pas un nombre valide, essayez à nouveau !")
         insert_mise()
         
-def get_mise():
+def show_mise():
     print(f'Vous avez {mise} euros.')
     time.sleep(2)
     return mise
 
+def get_mise():
+    return mise
+
 def update_mise(tentatives):
+    get_mise()
     global mise
     match tentatives:
         case tentatives if tentatives == 1:

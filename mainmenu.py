@@ -14,7 +14,7 @@ def showmainmenu():
         print('Dommage, peut-être une prochaine fois !')
     else:
         regles.afficher_regles()            
-        checkMise.get_mise()
+        checkMise.show_mise()
         maingame.maingame()
         
     # options = ['Jouer', 'Lire les règles', 'Afficher mes statistiques', 'Quitter']
