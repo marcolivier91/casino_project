@@ -36,7 +36,6 @@ def maingame():
             case guess if guess == number:
                 print(f'Bravo, vous avez trouvé le nombre en {nombreTentatives.get_tentatives()} tentatives !')
                 checkMise.update_mise(tentatives=nombreTentatives.get_tentatives())
-                levelManagement.update_level()
         if chances <= 0:
                 print('Dommage, vous avez épuisé toutes vos chances !')
                 time.sleep(2)
